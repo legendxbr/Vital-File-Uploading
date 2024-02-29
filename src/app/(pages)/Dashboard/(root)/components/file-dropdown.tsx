@@ -9,7 +9,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function FileDropdown({ file }: { file: File }) {
-    const userFiles = trpc.files.getUserFiles.useQuery({}, { refetchOnMount: false, refetchOnReconnect: false });
+    const userFiles = trpc.files.getUserFiles.useQuery({ userId: file.userId }, { refetchOnMount: false, refetchOnReconnect: false });
     const deleteFile = trpc.files.deleteUserFile.useMutation({ onSettled: () => { userFiles.refetch(); } });
     const [shareDialogOpen, setShareDialogOpen] = useState(false);
 

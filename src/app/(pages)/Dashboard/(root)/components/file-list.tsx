@@ -9,6 +9,7 @@ export function FileList({ initialFiles, userId }:
         initialData: initialFiles,
         refetchOnMount: false,
         refetchOnReconnect: false,
+        refetchOnWindowFocus: false
     });
     return (
         <div className="flex flex-wrap gap-4">
