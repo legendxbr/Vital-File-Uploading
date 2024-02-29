@@ -20,17 +20,25 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## Preview
 
-To learn more about Next.js, take a look at the following resources:
+![Auth](https://raw.githubusercontent.com/legendxbr/Vital-File-Uploading/master/public/home.png "Auth")
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+![](https://raw.githubusercontent.com/legendxbr/Vital-File-Uploading/master/public/auth.png)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+![](https://raw.githubusercontent.com/legendxbr/Vital-File-Uploading/master/public/dashboard.png)
 
-## Deploy on Vercel
+![](https://raw.githubusercontent.com/legendxbr/Vital-File-Uploading/master/public/profile_editing.png)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Enviroment Variables
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+DATABASE_URL="postgres-url"
+JOSE_TOKEN_SECRET="jose-token"
+
+MINIO_ACCESS_KEY="access-key"
+MINIO_SECRET_KEY="secret-key"
+MINIO_BUCKET_NAME="bucket-name"
+
+NEXT_PUBLIC_APP_DOMAIN="http://localhost:3000"
+```

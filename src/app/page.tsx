@@ -14,7 +14,7 @@ export default function IndexPage() {
                 </span>
                 <div className="flex gap-4">
                     <Link href={APP_ROUTES.private.dashboard}><Button>Get Started</Button></Link>
-                    <Button className="flex gap-2" variant='outline'><GitHubLogoIcon /> Github</Button>
+                    <Link href="https://github.com/legendxbr/Vital-File-Uploading"><Button className="flex gap-2" variant='outline'><GitHubLogoIcon /> Github</Button></Link>
                 </div>
             </div>
         </main>
