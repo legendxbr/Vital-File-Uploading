@@ -3,8 +3,9 @@ import { trpc } from "@/app/(api)/_trpc/client";
 import { FileComponent } from "./file";
 import { trpcServer } from "@/lib/trpc/server";
 
-export function FileList({ initialFiles }: { initialFiles: Awaited<ReturnType<(typeof trpcServer)["files"]["getUserFiles"]>> }) {
-    const filesArray = trpc.files.getUserFiles.useQuery({}, {
+export function FileList({ initialFiles, userId }:
+    { initialFiles: Awaited<ReturnType<(typeof trpcServer)["files"]["getUserFiles"]>>, userId: string }) {
+    const filesArray = trpc.files.getUserFiles.useQuery({ userId }, {
         initialData: initialFiles,
         refetchOnMount: false,
         refetchOnReconnect: false,

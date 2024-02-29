@@ -16,12 +16,12 @@ export default async function Dashboard() {
       <CardHeader>
         <CardTitle className="flex justify-between text-xl">
           <span className="text-3xl">Your Files</span>
-          <DashboardFilesButtons initialFiles={fileList} />
+          <DashboardFilesButtons initialFiles={fileList} userId={session.user.id} />
         </CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
         <Separator />
-        <FileList initialFiles={fileList} />
+        <FileList initialFiles={fileList} userId={session.user.id} />
       </CardContent>
     </Card>
   );

@@ -9,8 +9,10 @@ import { toast } from "sonner";
 import { trpc } from "@/app/(api)/_trpc/client";
 import { trpcServer } from "@/lib/trpc/server";
 
-export default function DashboardFilesButtons({ initialFiles }: { initialFiles: Awaited<ReturnType<(typeof trpcServer)["files"]["getUserFiles"]>> }) {
-    const getFiles = trpc.files.getUserFiles.useQuery({}, {
+export default function DashboardFilesButtons({ initialFiles, userId }: {
+    initialFiles: Awaited<ReturnType<(typeof trpcServer)["files"]["getUserFiles"]>>, userId: string
+}) {
+    const getFiles = trpc.files.getUserFiles.useQuery({ userId }, {
         initialData: initialFiles,
         refetchOnMount: false,
         refetchOnReconnect: false,
