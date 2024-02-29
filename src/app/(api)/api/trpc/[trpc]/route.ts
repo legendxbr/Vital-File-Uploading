@@ -11,3 +11,4 @@ function Handler(req: Request) {
 }
 
 export const POST = Handler;
+export const GET = Handler;

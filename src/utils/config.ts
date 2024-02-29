@@ -12,6 +12,10 @@ export const APP_ROUTES = {
     }
 }
 
+export function IsAPIRoute(pathName: string) {
+    return pathName.startsWith(APP_ROUTES.api.root);
+}
+
 export function IsPublicRoute(pathName: string) {
     const publicRoutes = Object.values(APP_ROUTES.public);
     const includePublic = publicRoutes.includes(pathName);

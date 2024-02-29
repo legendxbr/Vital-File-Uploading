@@ -14,12 +14,14 @@ datasource db {
 }
 
 model File {
-  id           String @id @default(cuid())
+  id           String   @id @default(cuid())
   name         String
   nameInBucket String
+  presignedUrl String   @default("")
   fileType     String
   sizeInBytes  Int
-  owner        User   @relation(fields: [userId], references: [id])
+  uploadDate   DateTime @default(now())
+  owner        User     @relation(fields: [userId], references: [id])
   userId       String
 }
 

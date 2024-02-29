@@ -2,7 +2,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { AuthSchema } from "@/app/(pages)/Authentication/Types/AuthTypes";
+import { AuthSchema } from "@/app/(pages)/Authentication/Types/AuthSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { RegisterAction } from "../Actions/Server";
 import { useFormState } from "react-dom";

@@ -1,8 +1,9 @@
 import { publicProcedure, router } from "../../../app/(api)/server/trpc";
-import { AuthSchema } from "@/app/(pages)/Authentication/Types/AuthTypes";
+import { AuthSchema } from "@/app/(pages)/Authentication/Types/AuthSchema";
 import { createHash } from "crypto";
 import { DestroySession, GetSession, SetSession } from "@/utils/session";
 import prisma from "@/utils/prisma";
+import { z } from "zod";
 
 export const usersRouter = router({
     createUser: publicProcedure
@@ -46,6 +47,28 @@ export const usersRouter = router({
             }
 
             SetSession(user.id);
+            return { success: true };
+        }),
+    updateUser: publicProcedure
+        .input(z.object({
+            userId: z.string(),
+            username: z.string().optional()
+        }))
+        .mutation(async ({ input }) => {
+            const session = await GetSession();
+            if (session === undefined) {
+                return { error: 'session' };
+            }
+
+            await prisma.user.update({
+                where: {
+                    id: input.userId
+                },
+                data: {
+                    username: input.username
+                }
+            });
+
             return { success: true };
         }),
     getSession: publicProcedure

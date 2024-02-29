@@ -1,7 +1,7 @@
 "use server"
 import { trpcServer } from "@/lib/trpc/server"
 import { setTimeout } from "timers/promises";
-import { AuthSchema } from "../Types/AuthTypes";
+import { AuthSchema } from "../Types/AuthSchema";
 export async function RegisterAction(prevState: any, values: FormData) {
     const parse = await AuthSchema.parseAsync({ email: values.get('email') as string, password: values.get('password') as string })
         .then(data => data).catch(_ => undefined);

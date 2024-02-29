@@ -4,7 +4,7 @@ import { httpBatchLink } from "@trpc/client";
 export const trpcClient = trpc.createClient({
     links: [
         httpBatchLink({
-            url: "http://localhost:3000/api/trpc"
+            url: process.env.NEXT_PUBLIC_APP_DOMAIN!.concat("/api/trpc")
         })
     ]
 });
