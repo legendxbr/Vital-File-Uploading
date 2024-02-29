@@ -9,7 +9,6 @@ export async function RegisterAction(prevState: any, values: FormData) {
         return { success: false, error: 'Invalid Fields' };
     }
 
-    await setTimeout(1000);
     const createUser = await trpcServer.users.createUser({ email: parse.email, password: parse.password });
     return { success: createUser.success, error: createUser.error };
 }
@@ -21,7 +20,6 @@ export async function LoginAction(prevState: any, values: FormData) {
         return { success: false, error: 'Invalid Fields' };
     }
 
-    await setTimeout(1000);
     const loginUser = await trpcServer.users.loginUser({ email: parse.email, password: parse.password });
     return { success: loginUser.success, error: loginUser.error };
 }

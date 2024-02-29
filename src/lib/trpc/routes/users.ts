@@ -54,8 +54,8 @@ export const usersRouter = router({
             userId: z.string(),
             username: z.string().optional()
         }))
-        .mutation(async ({ input }) => {
-            const session = await GetSession();
+        .mutation(async ({ input, ctx }) => {
+            const { session } = ctx as any;
             if (session === undefined) {
                 return { error: 'session' };
             }
@@ -72,8 +72,8 @@ export const usersRouter = router({
             return { success: true };
         }),
     getSession: publicProcedure
-        .query(async () => {
-            const session = await GetSession();
+        .query(async ({ ctx }) => {
+            const { session } = ctx as any;
             if (session === undefined) {
                 return { error: 'session' };
             }
